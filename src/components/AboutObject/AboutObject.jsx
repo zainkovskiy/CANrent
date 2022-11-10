@@ -16,62 +16,6 @@ export const AboutObject = ({ register, errors }) => {
   return (
     <>
       <span className='form__subtitle text'>Об объекте</span>
-      <ToggleButtonGroup
-        color='primary'
-        exclusive
-        onChange={(event) => handleChange(event)}
-        value={data?.Category || null}
-      >
-        <ToggleButton
-          size='small'
-          name='Category'
-          value='flatRent'
-        >
-          Квартира
-        </ToggleButton>
-        <ToggleButton
-          size='small'
-          name='Category'
-          value='roomRent'
-        >
-          Комната
-        </ToggleButton>
-        <ToggleButton
-          size='small'
-          name='Category'
-          value='bedRent'
-        >
-          Койка место
-        </ToggleButton>
-        <ToggleButton
-          size='small'
-          name='Category'
-          value='houseRent'
-        >
-          Дом
-        </ToggleButton>
-        <ToggleButton
-          size='small'
-          name='Category'
-          value='cottageRent'
-        >
-          Коттедж
-        </ToggleButton>
-        <ToggleButton
-          size='small'
-          name='Category'
-          value='townhouseRent'
-        >
-          Таунхаус
-        </ToggleButton>
-        <ToggleButton
-          size='small'
-          name='Category'
-          value='houseShareRent'
-        >
-          Часть дома
-        </ToggleButton>
-      </ToggleButtonGroup>
       {data?.Category === 'flatRent' && (
         <div className='field'>
           <div className='field__name text'>Количество комнат</div>
@@ -216,42 +160,42 @@ export const AboutObject = ({ register, errors }) => {
       {(data?.Category === 'flatRent' ||
         data?.Category === 'roomRent' ||
         data?.Category === 'bedRent') && (
-        <div className='field'>
-          <div className='field__name text'>Тип квариры</div>
-          <div className='field__action'>
-            <ToggleButtonGroup
-              color='primary'
-              exclusive
-              onChange={(event) => handleChange(event)}
-              value={data?.RoomType || null}
-            >
-              <ToggleButton
-                size='small'
-                name='RoomType'
-                value='combined'
+          <div className='field'>
+            <div className='field__name text'>Тип квариры</div>
+            <div className='field__action'>
+              <ToggleButtonGroup
+                color='primary'
+                exclusive
+                onChange={(event) => handleChange(event)}
+                value={data?.RoomType || null}
               >
-                Совмещенная
-              </ToggleButton>
-              <ToggleButton
-                size='small'
-                name='RoomType'
-                value='separate'
-              >
-                Изолированная
-              </ToggleButton>
-              {data?.Category === 'flatRent' && (
                 <ToggleButton
                   size='small'
                   name='RoomType'
-                  value='both'
+                  value='combined'
                 >
-                  Смежно-изолированная
+                  Совмещенная
                 </ToggleButton>
-              )}
-            </ToggleButtonGroup>
+                <ToggleButton
+                  size='small'
+                  name='RoomType'
+                  value='separate'
+                >
+                  Изолированная
+                </ToggleButton>
+                {data?.Category === 'flatRent' && (
+                  <ToggleButton
+                    size='small'
+                    name='RoomType'
+                    value='both'
+                  >
+                    Смежно-изолированная
+                  </ToggleButton>
+                )}
+              </ToggleButtonGroup>
+            </div>
           </div>
-        </div>
-      )}
+        )}
       {(data?.Category === 'roomRent' || data?.Category === 'bedRent') && (
         <div className='field'>
           <div className='field__name text'>
@@ -302,8 +246,8 @@ export const AboutObject = ({ register, errors }) => {
         <div className='field__name text'>
           <span>
             {data?.Category === 'flatRent' ||
-            data?.Category === 'roomRent' ||
-            data?.Category === 'bedRent'
+              data?.Category === 'roomRent' ||
+              data?.Category === 'bedRent'
               ? 'Общая площадь'
               : 'Площадь дома'}
             , м<sup>2</sup>
@@ -332,41 +276,41 @@ export const AboutObject = ({ register, errors }) => {
       {(data?.Category === 'flatRent' ||
         data?.Category === 'roomRent' ||
         data?.Category === 'bedRent') && (
-        <div className='field'>
-          <div className='field__name text'>Этаж</div>
-          <div className='field__action'>
-            <span className='field__error-icon'></span>
-            <TextField
-              autoComplete='off'
-              variant='outlined'
-              size='small'
-              type='number'
-              value={data?.FloorNumber || ''}
-              error={errors?.FloorNumber ? true : false}
-              {...register('FloorNumber', {
-                required: 'Укажите этаж',
-                validate: {
-                  more: (e) =>
-                    e <= data?.FloorsCount ||
-                    'Должен быть меньше или равен этажности',
-                },
-                onChange: (e) => handleChange(e),
-              })}
-            />
-            <span className='field__error-text text'>
-              {errors?.FloorNumber?.message || ''}
-            </span>
+          <div className='field'>
+            <div className='field__name text'>Этаж</div>
+            <div className='field__action'>
+              <span className='field__error-icon'></span>
+              <TextField
+                autoComplete='off'
+                variant='outlined'
+                size='small'
+                type='number'
+                value={data?.FloorNumber || ''}
+                error={errors?.FloorNumber ? true : false}
+                {...register('FloorNumber', {
+                  required: 'Укажите этаж',
+                  validate: {
+                    more: (e) =>
+                      e <= data?.FloorsCount ||
+                      'Должен быть меньше или равен этажности',
+                  },
+                  onChange: (e) => handleChange(e),
+                })}
+              />
+              <span className='field__error-text text'>
+                {errors?.FloorNumber?.message || ''}
+              </span>
+            </div>
           </div>
-        </div>
-      )}
+        )}
       <div className='field'>
         <div className='field__name text'>Этажей в доме</div>
         <div className='field__action'>
           {(data?.Category === 'flatRent' ||
             data?.Category === 'roomRent' ||
             data?.Category === 'bedRent') && (
-            <span className='field__error-icon'></span>
-          )}
+              <span className='field__error-icon'></span>
+            )}
           <TextField
             autoComplete='off'
             variant='outlined'
@@ -378,9 +322,9 @@ export const AboutObject = ({ register, errors }) => {
               required: {
                 value:
                   data?.Category === 'houseRent' ||
-                  data?.Category === 'cottageRent' ||
-                  data?.Category === 'townhouseRent' ||
-                  data?.Category === 'houseShareRent'
+                    data?.Category === 'cottageRent' ||
+                    data?.Category === 'townhouseRent' ||
+                    data?.Category === 'houseShareRent'
                     ? false
                     : true,
                 message: 'Укажите этаж и количество этажей в доме',
@@ -397,21 +341,21 @@ export const AboutObject = ({ register, errors }) => {
         data?.Category === 'cottageRent' ||
         data?.Category === 'townhouseRent' ||
         data?.Category === 'houseShareRent') && (
-        <div className='field'>
-          <div className='field__name text'>Количество спален</div>
-          <div className='field__action'>
-            <TextField
-              autoComplete='off'
-              variant='outlined'
-              size='small'
-              type='number'
-              name='BedroomsCount'
-              value={data?.BedroomsCount || ''}
-              onChange={(e) => handleChange(e)}
-            />
+          <div className='field'>
+            <div className='field__name text'>Количество спален</div>
+            <div className='field__action'>
+              <TextField
+                autoComplete='off'
+                variant='outlined'
+                size='small'
+                type='number'
+                name='BedroomsCount'
+                value={data?.BedroomsCount || ''}
+                onChange={(e) => handleChange(e)}
+              />
+            </div>
           </div>
-        </div>
-      )}
+        )}
       {data?.Category === 'houseShareRent' && (
         <div className='field'>
           <div className='field__name text'>Часть в аренду</div>
@@ -457,282 +401,282 @@ export const AboutObject = ({ register, errors }) => {
       {(data?.Category === 'flatRent' ||
         data?.Category === 'roomRent' ||
         data?.Category === 'bedRent') && (
-        <div className='field'>
-          <div className='field__name text'>
-            <span>
-              Кухня, м<sup>2</sup>
-            </span>
+          <div className='field'>
+            <div className='field__name text'>
+              <span>
+                Кухня, м<sup>2</sup>
+              </span>
+            </div>
+            <div className='field__action'>
+              <TextField
+                autoComplete='off'
+                variant='outlined'
+                size='small'
+                type='number'
+                name='KitchenArea'
+                value={data?.KitchenArea || ''}
+                onChange={(e) => handleChange(e)}
+              />
+            </div>
           </div>
-          <div className='field__action'>
-            <TextField
-              autoComplete='off'
-              variant='outlined'
-              size='small'
-              type='number'
-              name='KitchenArea'
-              value={data?.KitchenArea || ''}
-              onChange={(e) => handleChange(e)}
-            />
-          </div>
-        </div>
-      )}
+        )}
       {(data?.Category === 'flatRent' ||
         data?.Category === 'roomRent' ||
         data?.Category === 'bedRent') && (
-        <div className='field'>
-          <div className='field__name text'>Лоджия</div>
-          <div className='field__action'>
-            <ToggleButtonGroup
-              color='primary'
-              exclusive
-              onChange={(event) => handleChange(event)}
-              value={data?.LoggiasCount || 0}
-            >
-              <ToggleButton
-                size='small'
-                name='LoggiasCount'
-                value={0}
-                sx={{ width: 50 }}
+          <div className='field'>
+            <div className='field__name text'>Лоджия</div>
+            <div className='field__action'>
+              <ToggleButtonGroup
+                color='primary'
+                exclusive
+                onChange={(event) => handleChange(event)}
+                value={data?.LoggiasCount || 0}
               >
-                нет
-              </ToggleButton>
-              <ToggleButton
-                size='small'
-                name='LoggiasCount'
-                value={1}
-                sx={{ width: 50 }}
-              >
-                1
-              </ToggleButton>
-              <ToggleButton
-                size='small'
-                name='LoggiasCount'
-                value={2}
-                sx={{ width: 50 }}
-              >
-                2
-              </ToggleButton>
-              <ToggleButton
-                size='small'
-                name='LoggiasCount'
-                value={3}
-                sx={{ width: 50 }}
-              >
-                3
-              </ToggleButton>
-              <ToggleButton
-                size='small'
-                name='LoggiasCount'
-                value={4}
-                sx={{ width: 50 }}
-              >
-                4
-              </ToggleButton>
-            </ToggleButtonGroup>
+                <ToggleButton
+                  size='small'
+                  name='LoggiasCount'
+                  value={0}
+                  sx={{ width: 50 }}
+                >
+                  нет
+                </ToggleButton>
+                <ToggleButton
+                  size='small'
+                  name='LoggiasCount'
+                  value={1}
+                  sx={{ width: 50 }}
+                >
+                  1
+                </ToggleButton>
+                <ToggleButton
+                  size='small'
+                  name='LoggiasCount'
+                  value={2}
+                  sx={{ width: 50 }}
+                >
+                  2
+                </ToggleButton>
+                <ToggleButton
+                  size='small'
+                  name='LoggiasCount'
+                  value={3}
+                  sx={{ width: 50 }}
+                >
+                  3
+                </ToggleButton>
+                <ToggleButton
+                  size='small'
+                  name='LoggiasCount'
+                  value={4}
+                  sx={{ width: 50 }}
+                >
+                  4
+                </ToggleButton>
+              </ToggleButtonGroup>
+            </div>
           </div>
-        </div>
-      )}
+        )}
       {(data?.Category === 'flatRent' ||
         data?.Category === 'roomRent' ||
         data?.Category === 'bedRent') && (
-        <div className='field'>
-          <div className='field__name text'>Балконы</div>
-          <div className='field__action'>
-            <ToggleButtonGroup
-              color='primary'
-              exclusive
-              onChange={(event) => handleChange(event)}
-              value={data?.BalconiesCount || 0}
-            >
-              <ToggleButton
-                size='small'
-                name='BalconiesCount'
-                value={0}
-                sx={{ width: 50 }}
+          <div className='field'>
+            <div className='field__name text'>Балконы</div>
+            <div className='field__action'>
+              <ToggleButtonGroup
+                color='primary'
+                exclusive
+                onChange={(event) => handleChange(event)}
+                value={data?.BalconiesCount || 0}
               >
-                нет
-              </ToggleButton>
-              <ToggleButton
-                size='small'
-                name='BalconiesCount'
-                value={1}
-                sx={{ width: 50 }}
-              >
-                1
-              </ToggleButton>
-              <ToggleButton
-                size='small'
-                name='BalconiesCount'
-                value={3}
-                sx={{ width: 50 }}
-              >
-                2
-              </ToggleButton>
-              <ToggleButton
-                size='small'
-                name='BalconiesCount'
-                value={3}
-                sx={{ width: 50 }}
-              >
-                3
-              </ToggleButton>
-              <ToggleButton
-                size='small'
-                name='BalconiesCount'
-                value={4}
-                sx={{ width: 50 }}
-              >
-                4
-              </ToggleButton>
-            </ToggleButtonGroup>
+                <ToggleButton
+                  size='small'
+                  name='BalconiesCount'
+                  value={0}
+                  sx={{ width: 50 }}
+                >
+                  нет
+                </ToggleButton>
+                <ToggleButton
+                  size='small'
+                  name='BalconiesCount'
+                  value={1}
+                  sx={{ width: 50 }}
+                >
+                  1
+                </ToggleButton>
+                <ToggleButton
+                  size='small'
+                  name='BalconiesCount'
+                  value={3}
+                  sx={{ width: 50 }}
+                >
+                  2
+                </ToggleButton>
+                <ToggleButton
+                  size='small'
+                  name='BalconiesCount'
+                  value={3}
+                  sx={{ width: 50 }}
+                >
+                  3
+                </ToggleButton>
+                <ToggleButton
+                  size='small'
+                  name='BalconiesCount'
+                  value={4}
+                  sx={{ width: 50 }}
+                >
+                  4
+                </ToggleButton>
+              </ToggleButtonGroup>
+            </div>
           </div>
-        </div>
-      )}
+        )}
       {(data?.Category === 'flatRent' ||
         data?.Category === 'roomRent' ||
         data?.Category === 'bedRent') && (
-        <div className='field'>
-          <div className='field__name text'>Количество раздельных санузлов</div>
-          <div className='field__action'>
-            <ToggleButtonGroup
-              color='primary'
-              exclusive
-              onChange={(event) => handleChange(event)}
-              value={data?.SeparateWcsCount || 0}
-            >
-              <ToggleButton
-                size='small'
-                name='SeparateWcsCount'
-                value={0}
-                sx={{ width: 50 }}
+          <div className='field'>
+            <div className='field__name text'>Количество раздельных санузлов</div>
+            <div className='field__action'>
+              <ToggleButtonGroup
+                color='primary'
+                exclusive
+                onChange={(event) => handleChange(event)}
+                value={data?.SeparateWcsCount || 0}
               >
-                нет
-              </ToggleButton>
-              <ToggleButton
-                size='small'
-                name='SeparateWcsCount'
-                value={1}
-                sx={{ width: 50 }}
-              >
-                1
-              </ToggleButton>
-              <ToggleButton
-                size='small'
-                name='SeparateWcsCount'
-                value={3}
-                sx={{ width: 50 }}
-              >
-                2
-              </ToggleButton>
-              <ToggleButton
-                size='small'
-                name='SeparateWcsCount'
-                value={3}
-                sx={{ width: 50 }}
-              >
-                3
-              </ToggleButton>
-              <ToggleButton
-                size='small'
-                name='SeparateWcsCount'
-                value={4}
-                sx={{ width: 50 }}
-              >
-                4
-              </ToggleButton>
-            </ToggleButtonGroup>
+                <ToggleButton
+                  size='small'
+                  name='SeparateWcsCount'
+                  value={0}
+                  sx={{ width: 50 }}
+                >
+                  нет
+                </ToggleButton>
+                <ToggleButton
+                  size='small'
+                  name='SeparateWcsCount'
+                  value={1}
+                  sx={{ width: 50 }}
+                >
+                  1
+                </ToggleButton>
+                <ToggleButton
+                  size='small'
+                  name='SeparateWcsCount'
+                  value={3}
+                  sx={{ width: 50 }}
+                >
+                  2
+                </ToggleButton>
+                <ToggleButton
+                  size='small'
+                  name='SeparateWcsCount'
+                  value={3}
+                  sx={{ width: 50 }}
+                >
+                  3
+                </ToggleButton>
+                <ToggleButton
+                  size='small'
+                  name='SeparateWcsCount'
+                  value={4}
+                  sx={{ width: 50 }}
+                >
+                  4
+                </ToggleButton>
+              </ToggleButtonGroup>
+            </div>
           </div>
-        </div>
-      )}
+        )}
       {(data?.Category === 'flatRent' ||
         data?.Category === 'roomRent' ||
         data?.Category === 'bedRent') && (
-        <div className='field'>
-          <div className='field__name text'>Количество совместных санузлов</div>
-          <div className='field__action'>
-            <ToggleButtonGroup
-              color='primary'
-              exclusive
-              onChange={(event) => handleChange(event)}
-              value={data?.CombinedWcsCount || 0}
-            >
-              <ToggleButton
-                size='small'
-                name='CombinedWcsCount'
-                value={0}
-                sx={{ width: 50 }}
+          <div className='field'>
+            <div className='field__name text'>Количество совместных санузлов</div>
+            <div className='field__action'>
+              <ToggleButtonGroup
+                color='primary'
+                exclusive
+                onChange={(event) => handleChange(event)}
+                value={data?.CombinedWcsCount || 0}
               >
-                нет
-              </ToggleButton>
-              <ToggleButton
-                size='small'
-                name='CombinedWcsCount'
-                value={1}
-                sx={{ width: 50 }}
-              >
-                1
-              </ToggleButton>
-              <ToggleButton
-                size='small'
-                name='CombinedWcsCount'
-                value={3}
-                sx={{ width: 50 }}
-              >
-                2
-              </ToggleButton>
-              <ToggleButton
-                size='small'
-                name='CombinedWcsCount'
-                value={3}
-                sx={{ width: 50 }}
-              >
-                3
-              </ToggleButton>
-              <ToggleButton
-                size='small'
-                name='CombinedWcsCount'
-                value={4}
-                sx={{ width: 50 }}
-              >
-                4
-              </ToggleButton>
-            </ToggleButtonGroup>
+                <ToggleButton
+                  size='small'
+                  name='CombinedWcsCount'
+                  value={0}
+                  sx={{ width: 50 }}
+                >
+                  нет
+                </ToggleButton>
+                <ToggleButton
+                  size='small'
+                  name='CombinedWcsCount'
+                  value={1}
+                  sx={{ width: 50 }}
+                >
+                  1
+                </ToggleButton>
+                <ToggleButton
+                  size='small'
+                  name='CombinedWcsCount'
+                  value={3}
+                  sx={{ width: 50 }}
+                >
+                  2
+                </ToggleButton>
+                <ToggleButton
+                  size='small'
+                  name='CombinedWcsCount'
+                  value={3}
+                  sx={{ width: 50 }}
+                >
+                  3
+                </ToggleButton>
+                <ToggleButton
+                  size='small'
+                  name='CombinedWcsCount'
+                  value={4}
+                  sx={{ width: 50 }}
+                >
+                  4
+                </ToggleButton>
+              </ToggleButtonGroup>
+            </div>
           </div>
-        </div>
-      )}
+        )}
       {(data?.Category === 'houseRent' ||
         data?.Category === 'cottageRent' ||
         data?.Category === 'townhouseRent' ||
         data?.Category === 'houseShareRent') && (
-        <div className='field'>
-          <div className='field__name text'>Санузел</div>
-          <div className='field__action'>
-            <ToggleButtonGroup
-              color='primary'
-              exclusive
-              onChange={(event) => handleChange(event)}
-              value={data?.WcLocationType || null}
-            >
-              <ToggleButton
-                size='small'
-                sx={{ width: 100 }}
-                name='WcLocationType'
-                value='indoors'
+          <div className='field'>
+            <div className='field__name text'>Санузел</div>
+            <div className='field__action'>
+              <ToggleButtonGroup
+                color='primary'
+                exclusive
+                onChange={(event) => handleChange(event)}
+                value={data?.WcLocationType || null}
               >
-                На улице
-              </ToggleButton>
-              <ToggleButton
-                size='small'
-                sx={{ width: 100 }}
-                name='WcLocationType '
-                value='outdoors '
-              >
-                В доме
-              </ToggleButton>
-            </ToggleButtonGroup>
+                <ToggleButton
+                  size='small'
+                  sx={{ width: 100 }}
+                  name='WcLocationType'
+                  value='indoors'
+                >
+                  На улице
+                </ToggleButton>
+                <ToggleButton
+                  size='small'
+                  sx={{ width: 100 }}
+                  name='WcLocationType '
+                  value='outdoors '
+                >
+                  В доме
+                </ToggleButton>
+              </ToggleButtonGroup>
+            </div>
           </div>
-        </div>
-      )}
+        )}
       <div className='field'>
         <div className='field__name text'>Ремонт</div>
         <div className='field__action'>
@@ -883,63 +827,63 @@ export const AboutObject = ({ register, errors }) => {
               data?.Category === 'cottageRent' ||
               data?.Category === 'townhouseRent' ||
               data?.Category === 'houseShareRent') && (
-              <>
-                <FormControlLabel
-                  onChange={(event) => handleChange(event)}
-                  name='HasBathhouse'
-                  control={
-                    <Checkbox
-                      checked={data?.HasBathhouse || false}
-                      size='small'
-                    />
-                  }
-                  label={
-                    <span
-                      className='text'
-                      style={{ fontSize: 12 }}
-                    >
-                      Есть баня
-                    </span>
-                  }
-                />
-                <FormControlLabel
-                  onChange={(event) => handleChange(event)}
-                  name='HasGarage'
-                  control={
-                    <Checkbox
-                      checked={data?.HasGarage || false}
-                      size='small'
-                    />
-                  }
-                  label={
-                    <span
-                      className='text'
-                      style={{ fontSize: 12 }}
-                    >
-                      Есть гараж
-                    </span>
-                  }
-                />
-                <FormControlLabel
-                  onChange={(event) => handleChange(event)}
-                  name='HasPool'
-                  control={
-                    <Checkbox
-                      checked={data?.HasPool || false}
-                      size='small'
-                    />
-                  }
-                  label={
-                    <span
-                      className='text'
-                      style={{ fontSize: 12 }}
-                    >
-                      Есть бассейн
-                    </span>
-                  }
-                />
-              </>
-            )}
+                <>
+                  <FormControlLabel
+                    onChange={(event) => handleChange(event)}
+                    name='HasBathhouse'
+                    control={
+                      <Checkbox
+                        checked={data?.HasBathhouse || false}
+                        size='small'
+                      />
+                    }
+                    label={
+                      <span
+                        className='text'
+                        style={{ fontSize: 12 }}
+                      >
+                        Есть баня
+                      </span>
+                    }
+                  />
+                  <FormControlLabel
+                    onChange={(event) => handleChange(event)}
+                    name='HasGarage'
+                    control={
+                      <Checkbox
+                        checked={data?.HasGarage || false}
+                        size='small'
+                      />
+                    }
+                    label={
+                      <span
+                        className='text'
+                        style={{ fontSize: 12 }}
+                      >
+                        Есть гараж
+                      </span>
+                    }
+                  />
+                  <FormControlLabel
+                    onChange={(event) => handleChange(event)}
+                    name='HasPool'
+                    control={
+                      <Checkbox
+                        checked={data?.HasPool || false}
+                        size='small'
+                      />
+                    }
+                    label={
+                      <span
+                        className='text'
+                        style={{ fontSize: 12 }}
+                      >
+                        Есть бассейн
+                      </span>
+                    }
+                  />
+                </>
+              )}
           </div>
           <div className='field__column'>
             <span className='field__subtitle text'>Техника</span>
@@ -1115,28 +1059,28 @@ export const AboutObject = ({ register, errors }) => {
         data?.Category === 'cottageRent' ||
         data?.Category === 'townhouseRent' ||
         data?.Category === 'houseShareRent') && (
-        <div className='field'>
-          <div className='field__name text'>Площадь участка</div>
-          <div className='field__action'>
-            <span className='field__error-icon'></span>
-            <TextField
-              autoComplete='off'
-              variant='outlined'
-              size='small'
-              type='number'
-              value={data?.Area || ''}
-              error={errors?.Area ? true : false}
-              {...register('Area', {
-                required: 'Укажите площадь участка',
-                onChange: (e) => handleChange(e),
-              })}
-            />
-            <span className='field__error-text text'>
-              {errors?.Area?.message || ''}
-            </span>
+          <div className='field'>
+            <div className='field__name text'>Площадь участка</div>
+            <div className='field__action'>
+              <span className='field__error-icon'></span>
+              <TextField
+                autoComplete='off'
+                variant='outlined'
+                size='small'
+                type='number'
+                value={data?.Area || ''}
+                error={errors?.Area ? true : false}
+                {...register('Area', {
+                  required: 'Укажите площадь участка',
+                  onChange: (e) => handleChange(e),
+                })}
+              />
+              <span className='field__error-text text'>
+                {errors?.Area?.message || ''}
+              </span>
+            </div>
           </div>
-        </div>
-      )}
+        )}
     </>
   );
 };

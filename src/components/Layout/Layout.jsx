@@ -23,7 +23,7 @@ export const Layout = (props) => {
           setData({
             HasFurniture: true,
             HasInternet: true,
-            Category: 'houseRent',
+            Category: '',
           });
         }
       })
@@ -50,7 +50,6 @@ export const Layout = (props) => {
   };
 
   const handleChange = (event) => {
-    console.log(event);
     const name = event.target.name;
     const value = getValue(event);
     const key = event.target?.dataset?.key;
@@ -60,6 +59,20 @@ export const Layout = (props) => {
       [key || name]: key ? { ...prevState[key], [name]: value } : value,
     }));
   };
+
+  const setAddress = (address) => {
+    setData((prevState) => ({
+      ...prevState,
+      address: address
+    }))
+  }
+
+  const setCords = (name, value) => {
+    setData((prevState) => ({
+      ...prevState,
+      [name]: value
+    }))
+  }
 
   const whatsRender = () => {
     if (loading) {
@@ -74,6 +87,8 @@ export const Layout = (props) => {
   const value = {
     data: data,
     handleChange: handleChange,
+    setAddress: setAddress,
+    setCords: setCords,
   };
 
   return (

@@ -1,19 +1,24 @@
 import React, { useContext } from 'react';
-import { useForm, Controller } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
+import { Categories } from 'components/Categories';
+import { Address } from 'components/Address';
+import { Cords } from 'components/Cords';
 import { AboutObject } from 'components/AboutObject';
 import { AboutBuilding } from 'components/AboutBuilding';
 import { AboutDeal } from 'components/AboutDeal';
+import { LayoutContext } from 'components/Layout';
 
 import './FormTemplate.scss';
 
 export const FormTemplate = () => {
+  const { data } = useContext(LayoutContext);
   const {
     register,
-    control,
     handleSubmit,
-    defaultValue,
+    setValue,
     formState: { errors },
+    control
   } = useForm();
 
   const onSubmit = (formData) => {
@@ -27,19 +32,34 @@ export const FormTemplate = () => {
       className='form'
       onSubmit={handleSubmit(onSubmit)}
     >
-      <AboutObject
+      <Categories />
+      <Address
         register={register}
         errors={errors}
       />
-      <AboutBuilding
+      <Cords
         register={register}
         errors={errors}
+        setValue={setValue}
       />
-      <AboutDeal
-        register={register}
-        errors={errors}
-      />
-      <button type='submit'>submit</button>
+      {
+        data.Category &&
+        <>
+          <AboutObject
+            register={register}
+            errors={errors}
+          />
+          <AboutBuilding
+            register={register}
+            errors={errors}
+          />
+          <AboutDeal
+            register={register}
+            errors={errors}
+          />
+          <button type='submit'>submit</button>
+        </>
+      }
     </form>
   );
 };
