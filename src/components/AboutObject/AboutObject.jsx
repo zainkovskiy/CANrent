@@ -430,12 +430,12 @@ export const AboutObject = ({ register, errors }) => {
                 color='primary'
                 exclusive
                 onChange={(event) => handleChange(event)}
-                value={data?.LoggiasCount || 0}
+                value={data?.LoggiasCount || '0'}
               >
                 <ToggleButton
                   size='small'
                   name='LoggiasCount'
-                  value={0}
+                  value='0'
                   sx={{ width: 50 }}
                 >
                   нет
@@ -443,7 +443,7 @@ export const AboutObject = ({ register, errors }) => {
                 <ToggleButton
                   size='small'
                   name='LoggiasCount'
-                  value={1}
+                  value='1'
                   sx={{ width: 50 }}
                 >
                   1
@@ -451,7 +451,7 @@ export const AboutObject = ({ register, errors }) => {
                 <ToggleButton
                   size='small'
                   name='LoggiasCount'
-                  value={2}
+                  value='2'
                   sx={{ width: 50 }}
                 >
                   2
@@ -459,7 +459,7 @@ export const AboutObject = ({ register, errors }) => {
                 <ToggleButton
                   size='small'
                   name='LoggiasCount'
-                  value={3}
+                  value='3'
                   sx={{ width: 50 }}
                 >
                   3
@@ -467,7 +467,7 @@ export const AboutObject = ({ register, errors }) => {
                 <ToggleButton
                   size='small'
                   name='LoggiasCount'
-                  value={4}
+                  value='4'
                   sx={{ width: 50 }}
                 >
                   4
@@ -486,12 +486,12 @@ export const AboutObject = ({ register, errors }) => {
                 color='primary'
                 exclusive
                 onChange={(event) => handleChange(event)}
-                value={data?.BalconiesCount || 0}
+                value={data?.BalconiesCount || '0'}
               >
                 <ToggleButton
                   size='small'
                   name='BalconiesCount'
-                  value={0}
+                  value='0'
                   sx={{ width: 50 }}
                 >
                   нет
@@ -499,7 +499,7 @@ export const AboutObject = ({ register, errors }) => {
                 <ToggleButton
                   size='small'
                   name='BalconiesCount'
-                  value={1}
+                  value='1'
                   sx={{ width: 50 }}
                 >
                   1
@@ -507,7 +507,7 @@ export const AboutObject = ({ register, errors }) => {
                 <ToggleButton
                   size='small'
                   name='BalconiesCount'
-                  value={3}
+                  value='2'
                   sx={{ width: 50 }}
                 >
                   2
@@ -515,7 +515,7 @@ export const AboutObject = ({ register, errors }) => {
                 <ToggleButton
                   size='small'
                   name='BalconiesCount'
-                  value={3}
+                  value='3'
                   sx={{ width: 50 }}
                 >
                   3
@@ -523,7 +523,7 @@ export const AboutObject = ({ register, errors }) => {
                 <ToggleButton
                   size='small'
                   name='BalconiesCount'
-                  value={4}
+                  value='4'
                   sx={{ width: 50 }}
                 >
                   4
@@ -542,12 +542,12 @@ export const AboutObject = ({ register, errors }) => {
                 color='primary'
                 exclusive
                 onChange={(event) => handleChange(event)}
-                value={data?.SeparateWcsCount || 0}
+                value={data?.SeparateWcsCount || '0'}
               >
                 <ToggleButton
                   size='small'
                   name='SeparateWcsCount'
-                  value={0}
+                  value='0'
                   sx={{ width: 50 }}
                 >
                   нет
@@ -555,7 +555,7 @@ export const AboutObject = ({ register, errors }) => {
                 <ToggleButton
                   size='small'
                   name='SeparateWcsCount'
-                  value={1}
+                  value='1'
                   sx={{ width: 50 }}
                 >
                   1
@@ -563,7 +563,7 @@ export const AboutObject = ({ register, errors }) => {
                 <ToggleButton
                   size='small'
                   name='SeparateWcsCount'
-                  value={3}
+                  value='2'
                   sx={{ width: 50 }}
                 >
                   2
@@ -571,7 +571,7 @@ export const AboutObject = ({ register, errors }) => {
                 <ToggleButton
                   size='small'
                   name='SeparateWcsCount'
-                  value={3}
+                  value='3'
                   sx={{ width: 50 }}
                 >
                   3
@@ -579,7 +579,7 @@ export const AboutObject = ({ register, errors }) => {
                 <ToggleButton
                   size='small'
                   name='SeparateWcsCount'
-                  value={4}
+                  value='4'
                   sx={{ width: 50 }}
                 >
                   4
@@ -598,12 +598,12 @@ export const AboutObject = ({ register, errors }) => {
                 color='primary'
                 exclusive
                 onChange={(event) => handleChange(event)}
-                value={data?.CombinedWcsCount || 0}
+                value={data?.CombinedWcsCount || '0'}
               >
                 <ToggleButton
                   size='small'
                   name='CombinedWcsCount'
-                  value={0}
+                  value='0'
                   sx={{ width: 50 }}
                 >
                   нет
@@ -611,7 +611,7 @@ export const AboutObject = ({ register, errors }) => {
                 <ToggleButton
                   size='small'
                   name='CombinedWcsCount'
-                  value={1}
+                  value='1'
                   sx={{ width: 50 }}
                 >
                   1
@@ -619,7 +619,7 @@ export const AboutObject = ({ register, errors }) => {
                 <ToggleButton
                   size='small'
                   name='CombinedWcsCount'
-                  value={3}
+                  value='2'
                   sx={{ width: 50 }}
                 >
                   2
@@ -627,7 +627,7 @@ export const AboutObject = ({ register, errors }) => {
                 <ToggleButton
                   size='small'
                   name='CombinedWcsCount'
-                  value={3}
+                  value='3'
                   sx={{ width: 50 }}
                 >
                   3
@@ -635,7 +635,7 @@ export const AboutObject = ({ register, errors }) => {
                 <ToggleButton
                   size='small'
                   name='CombinedWcsCount'
-                  value={4}
+                  value='4'
                   sx={{ width: 50 }}
                 >
                   4
@@ -668,8 +668,8 @@ export const AboutObject = ({ register, errors }) => {
                 <ToggleButton
                   size='small'
                   sx={{ width: 100 }}
-                  name='WcLocationType '
-                  value='outdoors '
+                  name='WcLocationType'
+                  value='outdoors'
                 >
                   В доме
                 </ToggleButton>

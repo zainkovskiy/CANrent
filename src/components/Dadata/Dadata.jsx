@@ -16,21 +16,27 @@ export const Dadata = () => {
   }
 
   return (
-    <div style={{position: 'relative', marginLeft: '1rem'}}>
-      <span className='field__error-icon'></span>
-      <AddressSuggestions
-        token="408e6651c0b9bfc8e2f487383d45353973f3285c"
-        value={data.address || ''}
-        onChange={(e) => { handleSelect(e) }}
-        filterFromBound={'region'}
-        filterToBound={'house'}
-        inputProps={
-          {
-            placeholder: 'Введите адрес',
-            className: 'dadata__input',
-          }
-        }
-      />
-    </div>
+    <>
+      <div className="field">
+        <div className='field__name text'>Адрес (из списка)</div>
+        <div className='field__action'>
+          <span className='field__error-icon'></span>
+          <AddressSuggestions
+            token="408e6651c0b9bfc8e2f487383d45353973f3285c"
+            value={data.address || ''}
+            onChange={(e) => { handleSelect(e) }}
+            filterFromBound={'region'}
+            filterToBound={'house'}
+            inputProps={
+              {
+                // placeholder: 'Введите адрес',
+                className: 'dadata__input',
+              }
+            }
+            containerClassName='dadata__container'
+          />
+        </div>
+      </div>
+    </>
   )
 }

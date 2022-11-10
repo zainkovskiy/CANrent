@@ -33,13 +33,13 @@ export const Categories = () => {
         >
           Комната
         </ToggleButton>
-        <ToggleButton
+        {/* <ToggleButton
           size='small'
           name='Category'
           value='bedRent'
         >
           Койка место
-        </ToggleButton>
+        </ToggleButton> */}
         <ToggleButton
           size='small'
           name='Category'

@@ -130,12 +130,12 @@ export const AboutBuilding = ({ register, errors }) => {
                 color='primary'
                 exclusive
                 onChange={(event) => handleChange(event)}
-                value={data?.PassengerLiftsCount || 0}
+                value={data?.PassengerLiftsCount || '0'}
               >
                 <ToggleButton
                   size='small'
                   name='PassengerLiftsCount'
-                  value={0}
+                  value='0'
                   sx={{ width: 50 }}
                 >
                   нет
@@ -143,7 +143,7 @@ export const AboutBuilding = ({ register, errors }) => {
                 <ToggleButton
                   size='small'
                   name='PassengerLiftsCount'
-                  value={1}
+                  value='1'
                   sx={{ width: 50 }}
                 >
                   1
@@ -151,7 +151,7 @@ export const AboutBuilding = ({ register, errors }) => {
                 <ToggleButton
                   size='small'
                   name='PassengerLiftsCount'
-                  value={2}
+                  value='2'
                   sx={{ width: 50 }}
                 >
                   2
@@ -159,7 +159,7 @@ export const AboutBuilding = ({ register, errors }) => {
                 <ToggleButton
                   size='small'
                   name='PassengerLiftsCount'
-                  value={3}
+                  value='3'
                   sx={{ width: 50 }}
                 >
                   3
@@ -167,7 +167,7 @@ export const AboutBuilding = ({ register, errors }) => {
                 <ToggleButton
                   size='small'
                   name='PassengerLiftsCount'
-                  value={4}
+                  value='4'
                   sx={{ width: 50 }}
                 >
                   4
@@ -182,12 +182,12 @@ export const AboutBuilding = ({ register, errors }) => {
                 color='primary'
                 exclusive
                 onChange={(event) => handleChange(event)}
-                value={data?.CargoLiftsCount || 0}
+                value={data?.CargoLiftsCount || '0'}
               >
                 <ToggleButton
                   size='small'
                   name='CargoLiftsCount'
-                  value={0}
+                  value='0'
                   sx={{ width: 50 }}
                 >
                   нет
@@ -195,7 +195,7 @@ export const AboutBuilding = ({ register, errors }) => {
                 <ToggleButton
                   size='small'
                   name='CargoLiftsCount'
-                  value={1}
+                  value='1'
                   sx={{ width: 50 }}
                 >
                   1
@@ -203,7 +203,7 @@ export const AboutBuilding = ({ register, errors }) => {
                 <ToggleButton
                   size='small'
                   name='CargoLiftsCount'
-                  value={2}
+                  value='2'
                   sx={{ width: 50 }}
                 >
                   2
@@ -211,7 +211,7 @@ export const AboutBuilding = ({ register, errors }) => {
                 <ToggleButton
                   size='small'
                   name='CargoLiftsCount'
-                  value={3}
+                  value='3'
                   sx={{ width: 50 }}
                 >
                   3
@@ -219,7 +219,7 @@ export const AboutBuilding = ({ register, errors }) => {
                 <ToggleButton
                   size='small'
                   name='CargoLiftsCount'
-                  value={4}
+                  value='4'
                   sx={{ width: 50 }}
                 >
                   4

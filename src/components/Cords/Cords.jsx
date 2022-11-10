@@ -37,62 +37,57 @@ export const Cords = ({ register, errors, setValue }) => {
     setCords('lng', data.address.data.geo_lon);
     setValue('lat', data.address.data.geo_lat);
     setValue('lng', data.address.data.geo_lon);
-    // if (data.address?.data?.geo_lat && data.address?.data?.geo_lon){
-    //   setCenter([data.address.data.geo_lat, data.address.data.geo_lon]);
-    //   setPoint([data.address.data.geo_lat, data.address.data.geo_lon]);
-    //   // setValue('lat', object.address.data.geo_lat);
-    //   // setValue('lng', object.address.data.geo_lon);
-    // } else if (data?.address?.lat && data?.address?.lng){
-    //   setPoint([data.address.lat, data.address?.lng]);
-    //   setCenter([data.address.lat, data.address?.lng]);
-    //   // setValue('lat', object.address.lat);
-    //   // setValue('lng', object.address?.lng);
-    // }
   }
 
   return (
     <>
-      <p className='attention'>В соответствии с требованиями ЦИАН, необходимо указать координаты с точность до дома. Внимание! В случае ввода не верных координат объект не выгрузится в рекламу</p>
-      <div className="field__cords">
+      <div className='field'>
+        <div className='field__name text'>Координаты X</div>
         <div className='field__action'>
           <span className='field__error-icon'></span>
           <TextField
-            fullWidth
-            label='Координаты X'
             autoComplete='off'
             variant='outlined'
             size='small'
             name='lat'
             value={data?.lat || ''}
             {...register('lat', {
-              required: true,
+              required: 'Укажите координаты',
             })}
             error={errors?.lat ? true : false}
             inputProps={
               { readOnly: true, }
             }
           />
+          <span className='field__error-text text'>
+            {errors?.lat?.message || ''}
+          </span>
         </div>
+      </div>
+      <div className="field">
+        <div className='field__name text'>Координаты Y</div>
         <div className='field__action'>
           <span className='field__error-icon'></span>
           <TextField
-            fullWidth
-            label='Координаты Y'
             autoComplete='off'
             variant='outlined'
             size='small'
             name='lng'
             value={data?.lng || ''}
             {...register('lng', {
-              required: true,
+              required: 'Укажите координаты',
             })}
             error={errors?.lng ? true : false}
             inputProps={
               { readOnly: true, }
             }
           />
+          <span className='field__error-text text'>
+            {errors?.lng?.message || ''}
+          </span>
         </div>
       </div>
+      <p className='attention'>В соответствии с требованиями ЦИАН, необходимо указать координаты с точность до дома. Внимание! В случае ввода не верных координат объект не выгрузится в рекламу</p>
       <div style={{ height: 400 }}>
         <YMaps>
           <Map

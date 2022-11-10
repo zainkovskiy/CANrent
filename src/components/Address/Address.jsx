@@ -14,12 +14,18 @@ export const Address = ({ register, errors }) => {
   }
   return (
     <>
-      <span className='form__subtitle text'>Адрес и местоположение</span>
+      <span className='form__subtitle text'>
+        Адрес и местоположение
+      </span>
       <Button
         variant="text"
         onClick={handleClick}
       >
-        адреса нет в списке
+        {
+          absentAddress ?
+            'выбрать из списка' :
+            'адреса нет в списке'
+        }
       </Button>
       {
         absentAddress ?

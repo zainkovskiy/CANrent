@@ -8,6 +8,7 @@ import { AboutObject } from 'components/AboutObject';
 import { AboutBuilding } from 'components/AboutBuilding';
 import { AboutDeal } from 'components/AboutDeal';
 import { LayoutContext } from 'components/Layout';
+import { AddressFlat } from 'components/AddressFlat';
 
 import './FormTemplate.scss';
 
@@ -33,18 +34,25 @@ export const FormTemplate = () => {
       onSubmit={handleSubmit(onSubmit)}
     >
       <Categories />
-      <Address
-        register={register}
-        errors={errors}
-      />
-      <Cords
-        register={register}
-        errors={errors}
-        setValue={setValue}
-      />
       {
         data.Category &&
         <>
+          <Address
+            register={register}
+            errors={errors}
+          />
+          {
+            (data?.Category === 'flatRent' || data?.Category === 'roomRent') &&
+            <AddressFlat
+              register={register}
+              errors={errors}
+            />
+          }
+          <Cords
+            register={register}
+            errors={errors}
+            setValue={setValue}
+          />
           <AboutObject
             register={register}
             errors={errors}
