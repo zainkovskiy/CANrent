@@ -1,9 +1,10 @@
 import React from 'react';
+import { RouterProvider } from 'react-router-dom';
 
 import { Header } from 'components/Header';
 import { Title } from 'components/Title';
 import { Layout } from 'components/Layout';
-import { FormTemplate } from 'components/FormTemplate';
+import { routes } from './routes';
 
 import './App.scss';
 
@@ -13,7 +14,7 @@ export const App = () => {
       <Header />
       <Title title='Аренда' />
       <Layout>
-        <FormTemplate />
+        <RouterProvider router={routes} />
       </Layout>
     </>
   );

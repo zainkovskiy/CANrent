@@ -17,6 +17,10 @@ body {
   font-family: 'Montserrat', sans-serif;
   color: #737373;
 }
+.buttons__wrap{
+  display: flex;
+  justify-content: flex-end;
+}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;

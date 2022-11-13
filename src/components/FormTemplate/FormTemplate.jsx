@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 import { Categories } from 'components/Categories';
 import { Address } from 'components/Address';
@@ -14,6 +16,7 @@ import './FormTemplate.scss';
 
 export const FormTemplate = () => {
   const { data } = useContext(LayoutContext);
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -26,6 +29,7 @@ export const FormTemplate = () => {
     console.log('====================================');
     console.log(formData);
     console.log('====================================');
+    navigate('photo');
   };
 
   return (
@@ -65,7 +69,15 @@ export const FormTemplate = () => {
             register={register}
             errors={errors}
           />
-          <button type='submit'>submit</button>
+          <div className='buttons__wrap'>
+            <Button
+              size='small'
+              type='submit'
+              variant='contained'
+            >
+              Далее
+            </Button>
+          </div>
         </>
       }
     </form>

@@ -1,18 +1,15 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useContext } from "react";
 import { Button } from "@mui/material";
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-
-import { selectPhoto } from "actions/photo";
-import { addRemovePhoto } from "actions/object";
+import { LayoutContext } from 'components/Layout';
 
 import './CardPhoto.scss';
 
-export const CardPhoto = ({ photo }) => {
-  const dispatch = useDispatch();
+export const CardPhoto = ({ photo, toggleSelect }) => {
+  const { movePhoto } = useContext(LayoutContext);
   const handleClick = () => {
-    dispatch(selectPhoto(photo.UID));
-    dispatch(addRemovePhoto(photo));
+    toggleSelect(photo);
+    movePhoto(photo);
   }
   return (
     <div className="photo">

@@ -24,6 +24,7 @@ export const Layout = (props) => {
             HasFurniture: true,
             HasInternet: true,
             Category: '',
+            selectPhoto: []
           });
         }
       })
@@ -34,6 +35,20 @@ export const Layout = (props) => {
         setLoading(false);
       });
   };
+
+  const movePhoto = (photo) => {
+    if (data.selectPhoto.find(item => item.UID === photo.UID)) {
+      setData((prevState) => ({
+        ...prevState,
+        selectPhoto: data.selectPhoto.filter(item => item.UID !== photo.UID)
+      }))
+      return
+    }
+    setData((prevState) => ({
+      ...prevState,
+      selectPhoto: [...data.selectPhoto, photo]
+    }))
+  }
 
   const getValue = (event) => {
     const name = event.target.name;
@@ -89,6 +104,7 @@ export const Layout = (props) => {
     handleChange: handleChange,
     setAddress: setAddress,
     setCords: setCords,
+    movePhoto: movePhoto,
   };
 
   return (

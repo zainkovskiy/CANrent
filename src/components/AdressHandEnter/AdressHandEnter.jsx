@@ -18,7 +18,7 @@ export const AdressHandEnter = ({ register, errors }) => {
           name='newAddress'
           value={data?.newAddress || ''}
           {...register('newAddress', {
-            required: 'Не указана стоимость',
+            required: 'Не указан адрес',
             onChange: (e) => handleChange(e),
           })}
           error={errors?.newAddress ? true : false}
