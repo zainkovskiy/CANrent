@@ -6,19 +6,19 @@ import { Photo } from 'components/Photo';
 
 export const routes = createBrowserRouter([
   {
-    path: '/',
+    path: '/dev/rent/',
     element: <FormTemplate />
   },
   {
-    path: 'photo',
+    path: '/dev/rent/photo',
     element: <Photo />
   },
   {
-    path: 'access',
+    path: '/dev/rent/access',
     element: <span className="text">Объект успешно создан</span>
   },
   {
-    path: 'error',
+    path: '/dev/rent/error',
     element: <span className="text">Что то пошло не так</span>
   },
   {

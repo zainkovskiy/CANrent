@@ -819,7 +819,7 @@ export const AboutObject = ({ register, errors }) => {
                   className='text'
                   style={{ fontSize: 12 }}
                 >
-                  Мебель в квартире
+                  Кухонный гарнитур
                 </span>
               }
             />

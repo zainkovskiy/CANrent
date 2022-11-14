@@ -90,7 +90,7 @@ export const AboutBuilding = ({ register, errors }) => {
         <div className='field'>
           <div className='field__name text'>Отопление</div>
           <div className='field__action'>
-            {/* <Select
+            <Select
               value={data?.HeatingType || ''}
               name='HeatingType'
               onChange={(event) => handleChange(event)}
@@ -115,7 +115,7 @@ export const AboutBuilding = ({ register, errors }) => {
                 Твердотопливный котел
               </MenuItem>
               <MenuItem value={'no'}>Без отопления</MenuItem>
-            </Select> */}
+            </Select>
           </div>
         </div>
       )}

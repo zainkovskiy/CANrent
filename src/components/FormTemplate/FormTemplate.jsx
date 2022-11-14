@@ -29,7 +29,8 @@ export const FormTemplate = () => {
     console.log('====================================');
     console.log(formData);
     console.log('====================================');
-    navigate('photo');
+    // navigate('/photo');
+    navigate('/dev/rent/photo');
   };
 
   return (

@@ -21,9 +21,6 @@ export const AddressFlat = ({ register, errors }) => {
             onChange: (e) => handleChange(e),
           })}
           error={errors?.numberFlat ? true : false}
-          inputProps={
-            { readOnly: true, }
-          }
         />
         <span className='field__error-text text'>
           {errors?.numberFlat?.message || ''}

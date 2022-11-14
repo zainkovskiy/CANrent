@@ -18,7 +18,8 @@ export const Photo = () => {
       getPhoto();
       return
     }
-    navigate('/error');
+    // navigate('/error');
+    navigate('/dev/rent/error');
   }, [])
 
   const getPhoto = async () => {
@@ -39,7 +40,8 @@ export const Photo = () => {
   const handleClick = () => {
     setPhotoLoading(true);
     setTimeout(() => {
-      navigate('/access');
+      // navigate('/access');
+      navigate('/dev/rent/access');
     }, 1500)
   }
   return (
